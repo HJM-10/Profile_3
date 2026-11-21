@@ -4,7 +4,7 @@
 
 A violet portfolio with a workstation opening, Overview, a vertical project timeline, selectable projects, and a pointer-responsive globe. The contact form validates and previews enquiries in the browser. It does not send messages.
 
-The All projects section lists 24 entries and can be filtered by category.
+The All projects section presents 24 visual covers in four scroll-driven chapters. Use the project picker to jump to a cover, or select a cover to read the details. Reduced-motion users get a visual grid.
 
 ## Run locally
 

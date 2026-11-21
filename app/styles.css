@@ -98,29 +98,3 @@ form .section-label { color:#bbaad8; margin-bottom:.35rem; }
   .timeline li .timeline-node, .timeline li:nth-child(even) .timeline-node { left:0; right:auto; }
 }
 @media (prefers-reduced-motion: reduce) { .scroll-control span { animation:none; } }
-
-.project-archive { scroll-margin-top: var(--archive-offset, 1rem); padding: clamp(3rem, 7vw, 6rem) var(--archive-padding, clamp(1rem, 6vw, 6rem)); color: var(--archive-ink, #191917); background: var(--archive-paper, #f6f3ee); }
-.project-archive-header { display:flex; align-items:end; justify-content:space-between; flex-wrap:wrap; gap:1rem 2rem; }
-.project-archive-header h2 { margin:0; font-size: clamp(2.5rem, 6vw, 5.5rem); letter-spacing:-.07em; line-height:.95; }
-.project-archive-header label { display:grid; gap:.35rem; margin:0; font-size:.92rem; }
-.project-archive-header select { font:inherit; color:inherit; background:var(--archive-control, #fffdf8); border:1px solid var(--archive-line, #aea598); padding:.55rem .75rem; border-radius:.35rem; min-width: min(13rem, 100%); }
-.project-archive-header select:focus-visible, .catalog-project summary:focus-visible { outline:2px solid var(--archive-focus, #6046a9); outline-offset:4px; }
-.archive-count { margin:1rem 0 .6rem; color:var(--archive-muted, #55534f); font-size:.92rem; min-height:1.4rem; }
-.catalog-list { display:grid; grid-template-columns:repeat(var(--archive-columns, 2),minmax(0,1fr)); align-items:start; column-gap:clamp(1.2rem,5vw,4rem); }
-.catalog-project { margin:0; border-top:1px solid var(--archive-line, #aea598); }
-.catalog-project summary { display:grid; width:100%; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:.3rem 1rem; padding:1rem .15rem; list-style:none; cursor:pointer; }
-.catalog-project summary::-webkit-details-marker { display:none; }
-.catalog-project summary::after { grid-column:2; grid-row:1 / span 2; align-self:center; content:"+"; font-size:1.25rem; font-weight:400; }
-.catalog-project[open] summary::after { content:"−"; }
-.catalog-project summary:hover .catalog-title { text-decoration:underline; text-underline-offset:.2em; }
-.catalog-title { font-weight:700; font-size:clamp(1.05rem,2vw,1.4rem); line-height:1.2; }
-.catalog-status { grid-column:1; color:var(--archive-muted, #55534f); font-size:.85rem; }
-.catalog-project p { color:var(--archive-muted, #55534f); margin:0 1.5rem 1.1rem .15rem; max-width:56ch; }
-@media (max-width: 640px) {
-  .catalog-list { grid-template-columns:1fr; }
-}
-.project-archive { --archive-paper:#0f0b21; --archive-ink:#f4f2ff; --archive-muted:#d1c4e9; --archive-line:#584377; --archive-control:#221437; --archive-focus:#c5adff; --archive-offset:4.8rem; border-block:1px solid #34234d; }
-@media (max-width: 400px) {
-  .bar { flex-wrap:wrap; column-gap:.65rem; }
-  .project-archive { --archive-offset:6rem; }
-}

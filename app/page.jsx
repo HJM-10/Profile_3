@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ProjectArchive from "./project-archive";
+import ScrollMotion from "./scroll-motion";
 
 const projects = [
   { title: "DNF Trading", image: "/instruments.png", description: "A catalog and ordering platform with a live 3D product customizer." },
@@ -42,13 +43,14 @@ export default function OrbitalPortfolio() {
 
   return (
     <div className="site">
+      <ScrollMotion />
       <header className="bar">
         <a className="brand" href="#top">Huzaifa Jayyad</a>
         <nav aria-label="Main navigation"><a href="#about">About</a><a href="#all-projects">All projects</a><a href="#contact">Contact</a></nav>
       </header>
 
       <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
+        <section className="hero" data-scroll-scene aria-labelledby="hero-title">
           <div className="hero-copy">
             <h1 id="hero-title">Hi, I’m <span>Huzaifa.</span></h1>
             <p>I build web apps and mobile tools for bookings, scheduling, and repetitive work.</p>
@@ -58,7 +60,7 @@ export default function OrbitalPortfolio() {
           <a className="scroll-control" href="#about" aria-label="Scroll to overview"><span /></a>
         </section>
 
-        <section className="overview" id="about">
+        <section className="overview" id="about" data-scroll-scene>
           <p className="section-label">Introduction</p>
           <h2>Overview.</h2>
           <p>I’m Huzaifa Jayyad, a computer science student and developer. I build web apps, mobile apps, and workflow tools with React, Next.js, Flutter, and FastAPI. I usually start by mapping the workflow and testing it in a prototype.</p>
@@ -69,12 +71,12 @@ export default function OrbitalPortfolio() {
           <h2>Project experience.</h2>
           <ol className="timeline">
             {experience.map(item => (
-              <li key={item.title}><span className="timeline-node" aria-hidden="true" /><div><h3>{item.title}</h3><p className="timeline-project">{item.project}</p><p>{item.note}</p></div></li>
+              <li key={item.title} data-scroll-scene><span className="timeline-node" aria-hidden="true" /><div><h3>{item.title}</h3><p className="timeline-project">{item.project}</p><p>{item.note}</p></div></li>
             ))}
           </ol>
         </section>
 
-        <section className="work" id="work">
+        <section className="work" id="work" data-scroll-scene>
           <p className="section-label">My work</p>
           <h2>Projects.</h2>
           <p className="work-lead">Selected apps that show how I handle product configuration, mobile ordering, and spending workflows.</p>
@@ -94,7 +96,7 @@ export default function OrbitalPortfolio() {
 
         <ProjectArchive />
 
-        <section className="contact" id="contact">
+        <section className="contact" id="contact" data-scroll-scene>
           <form onSubmit={handleSubmit} onInput={() => setPreviewName("")}>
             <p className="section-label">Get in touch</p>
             <h2>Contact.</h2>
