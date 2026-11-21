@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import ProjectArchive from "./project-archive";
 
 const projects = [
-  { title: "KT Sports Hub", description: "A customer app and admin dashboard for venue booking, equipment rentals, and QR check-in." },
-  { title: "TTMS", description: "A multi-campus timetable platform. I worked on Excel imports, scheduling rules, and staff workflows." },
-  { title: "Certificate Generator", description: "A Computer Science Society tool for editing templates and exporting sharp certificate PDFs." },
+  { title: "DNF Trading", image: "/instruments.png", description: "A catalog and ordering platform with a live 3D product customizer." },
+  { title: "3DFV", image: "/restaurant.jpg", description: "A restaurant ordering app with guest browsing, a shopping cart, and QR-to-AR viewing." },
+  { title: "SpendTrail", image: "/spendtrail.png", description: "A mobile spending tracker with simulated purchases and refunds." },
+];
+
+const experience = [
+  { title: "Business web applications", project: "DNF Trading", note: "Worked on the customer interface, admin dashboard, and product configuration options." },
+  { title: "Mobile app development", project: "3DFV and SpendTrail", note: "Built ordering, navigation, account, and spending flows across Expo and Flutter projects." },
+  { title: "Scheduling and internal workflows", project: "TTMS and KT Sports Hub", note: "Worked on timetable imports and scheduling rules, and explored venue booking and QR check-in." },
 ];
 
 export default function OrbitalPortfolio() {
@@ -37,21 +44,40 @@ export default function OrbitalPortfolio() {
     <div className="site">
       <header className="bar">
         <a className="brand" href="#top">Huzaifa Jayyad</a>
-        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#all-projects">All projects</a><a href="#contact">Contact</a></nav>
       </header>
 
       <main id="top">
-        <section className="hero" id="about">
+        <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <h1>Hey, I’m <span>Huzaifa.</span></h1>
+            <h1 id="hero-title">Hi, I’m <span>Huzaifa.</span></h1>
             <p>I build web apps and mobile tools for bookings, scheduling, and repetitive work.</p>
-            <a className="action" href="#contact">Talk about a project</a>
           </div>
           <div className="contours" aria-hidden="true" />
+          <div className="workstation" aria-hidden="true" />
+          <a className="scroll-control" href="#about" aria-label="Scroll to overview"><span /></a>
+        </section>
+
+        <section className="overview" id="about">
+          <p className="section-label">Introduction</p>
+          <h2>Overview.</h2>
+          <p>I’m Huzaifa Jayyad, a computer science student and developer. I build web apps, mobile apps, and workflow tools with React, Next.js, Flutter, and FastAPI. I usually start by mapping the workflow and testing it in a prototype.</p>
+          <div className="capabilities"><span>Web development</span><span>Mobile development</span><span>Workflow automation</span></div>
+        </section>
+
+        <section className="experience" id="experience">
+          <h2>Project experience.</h2>
+          <ol className="timeline">
+            {experience.map(item => (
+              <li key={item.title}><span className="timeline-node" aria-hidden="true" /><div><h3>{item.title}</h3><p className="timeline-project">{item.project}</p><p>{item.note}</p></div></li>
+            ))}
+          </ol>
         </section>
 
         <section className="work" id="work">
-          <h2>Selected work</h2>
+          <p className="section-label">My work</p>
+          <h2>Projects.</h2>
+          <p className="work-lead">Selected apps that show how I handle product configuration, mobile ordering, and spending workflows.</p>
           <div className="work-grid">
             <div className="project-selector" aria-label="Select a project">
               {projects.map((project, index) => (
@@ -59,15 +85,19 @@ export default function OrbitalPortfolio() {
               ))}
             </div>
             <article aria-live="polite">
+              <img src={projects[activeProject].image} alt="" />
               <h3>{projects[activeProject].title}</h3>
               <p>{projects[activeProject].description}</p>
             </article>
           </div>
         </section>
 
+        <ProjectArchive />
+
         <section className="contact" id="contact">
           <form onSubmit={handleSubmit} onInput={() => setPreviewName("")}>
-            <h2>Let’s talk.</h2>
+            <p className="section-label">Get in touch</p>
+            <h2>Contact.</h2>
             <p>Tell me what you’d like to build. This prototype previews the form locally.</p>
             <label htmlFor="name">Name</label>
             <input id="name" name="name" autoComplete="name" required maxLength={80} />

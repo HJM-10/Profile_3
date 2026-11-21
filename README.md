@@ -2,7 +2,9 @@
 
 ## Orbital portfolio
 
-A violet portfolio with selectable projects, a pointer-responsive globe, and a contact form preview. The form validates and previews enquiries in the browser. It does not send messages.
+A violet portfolio with a workstation opening, Overview, a vertical project timeline, selectable projects, and a pointer-responsive globe. The contact form validates and previews enquiries in the browser. It does not send messages.
+
+The All projects section lists 24 entries and can be filtered by category.
 
 ## Run locally
 
