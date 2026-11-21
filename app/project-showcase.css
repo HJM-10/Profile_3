@@ -76,6 +76,14 @@
 .showcase-card .project-art { border-radius: clamp(.45rem, 1.1vw, 1.1rem); box-shadow: 0 22px 55px #100b1e40; }
 .showcase-card[data-current="false"] .project-art { border-radius: 10% 5% 9% 4% / 6% 4% 7% 3%; }
 .project-art > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.art-screen { background: radial-gradient(ellipse at 66% 18%, color-mix(in srgb, var(--art-accent), var(--art-ink) 58%), var(--art-ink) 78%); }
+.project-art.art-screen > img { inset:5.5% 5% auto; width:90%; height:75%; object-fit:contain; object-position:center; filter:drop-shadow(0 12px 18px #06051272); }
+.art-screen .art-caption { inset:auto clamp(.85rem,3vw,2.4rem) clamp(.75rem,3vw,1.6rem); }
+.art-screen .art-caption strong { font-size:clamp(1.45rem,4vw,4.2rem); }
+.art-screen::after { background:linear-gradient(transparent 67%,#07071194); }
+@media (max-width:650px) {
+  .project-art.art-screen > img { inset:10% 4% auto; width:92%; height:67%; }
+}
 .project-art::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(transparent 50%, #070711d9); }
 .art-caption { position: absolute; z-index: 1; inset: auto clamp(1rem, 3.5vw, 3.8rem) clamp(1rem, 3.3vw, 3rem); display: grid; justify-items: start; text-align: left; }
 .art-caption strong { font-size: clamp(1.65rem, 5.4vw, 5.8rem); line-height: .88; letter-spacing: -.065em; overflow-wrap: anywhere; }
@@ -147,6 +155,47 @@
 .project-showcase { --showcase-paper:#0e0a1f; --showcase-ink:#f4f2ff; --showcase-fade:#d2c7e6; --showcase-line:#634c8b; border-block:1px solid #3d2b59; }
 .showcase-stage { padding-top:max(6rem, 12vh); }
 .showcase-card .project-art { box-shadow:0 25px 70px #55239f55; }
+@media (prefers-reduced-motion: no-preference) {
+  .showcase-deck::before {
+    content:""; position:absolute; inset:7% 8%; pointer-events:none;
+    background:radial-gradient(ellipse at center,#8c54eb30,transparent 69%);
+    opacity:calc(.55 + var(--chapter-progress,0) * .45);
+  }
+  .showcase-card {
+    --arrival:clamp(0,var(--offset),1.18);
+    --departure:clamp(0,calc(0 - var(--offset)),1.25);
+    transform:
+      translate3d(-50%,calc(-50% + var(--arrival) * 24% - var(--departure) * 15%),calc(var(--departure) * -205px - var(--arrival) * 110px))
+      rotateX(calc(var(--arrival) * -34deg + var(--departure) * 22deg))
+      scale(calc(1 - var(--departure) * .15 - var(--arrival) * .055));
+    opacity:clamp(0,calc(1 - var(--departure) * .85),1);
+    clip-path:inset(calc(var(--arrival) * 82%) 0 0 round .65rem);
+    z-index:var(--sequence,0);
+    will-change:transform,opacity,clip-path;
+  }
+  .showcase-card:focus-visible {
+    outline:0;
+  }
+  .showcase-card:focus-visible .project-art { outline:2px solid #d1afff; outline-offset:-5px; }
+  .showcase-card[data-current="false"] { pointer-events:none; }
+  [data-motion="shutter"] .showcase-card {
+    transform:translate3d(-50%,calc(-50% + var(--arrival) * 12% - var(--departure) * 12%),calc(var(--departure) * -145px))
+      scale(calc(1 + var(--arrival) * .1 - var(--departure) * .11));
+    clip-path:inset(0 0 calc(var(--arrival) * 84%) 0 round .65rem);
+  }
+  [data-motion="turn"] .showcase-card {
+    transform:translate3d(-50%,-50%,calc(var(--arrival) * -110px - var(--departure) * 155px))
+      rotateY(calc(var(--arrival) * -52deg + var(--departure) * 32deg))
+      scale(calc(1 - var(--departure) * .18));
+    clip-path:inset(0 calc(var(--arrival) * 80%) 0 0 round .65rem);
+  }
+  [data-motion="iris"] .showcase-card {
+    transform:translate3d(-50%,-50%,calc(var(--departure) * -185px))
+      scale(calc(1 - var(--arrival) * .1 - var(--departure) * .21));
+    clip-path:ellipse(calc(77% - var(--arrival) * 65%) calc(78% - var(--arrival) * 69%) at center);
+    opacity:clamp(0,calc(1 - var(--departure) * .86 - var(--arrival) * .35),1);
+  }
+}
 @media (prefers-reduced-motion: reduce) { .showcase-stage { padding-top:2rem; } }
 @media (prefers-reduced-motion: no-preference) {
   .hero .workstation { transform:translate3d(calc(var(--scene,0) * 3vw), calc(var(--scene,0) * -13vh), 0); }

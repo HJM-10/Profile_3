@@ -71,27 +71,98 @@ const covers = [
   [
     "UMT LMS Redesign",
     "UMT LMS",
-    "grid",
-    null,
+    "screen",
+    "/showcase/lms.webp",
     "#83b8ff",
     "#1e3454",
     [
       "Courses",
       "Gradebook",
       "Assignments"
-    ]
+    ],
+    "Original frontend · demo workspace"
   ],
   [
-    "C# Timetable Manager",
-    "Timetable Manager",
-    "window",
-    null,
-    "#81c7d3",
-    "#1d4555",
+    "PhishScan",
+    "PhishScan",
+    "screen",
+    "/showcase/phishscan.webp",
+    "#a4bafe",
+    "#24264a",
     [
-      "Classes",
-      "Teachers",
-      "Rooms"
+      "Inbox",
+      "Analyze message",
+      "Review signals"
+    ],
+    "Original frontend · sample inbox"
+  ],
+  [
+    "SialMail / Email Automator",
+    "SialMail",
+    "screen",
+    "/showcase/sialmail.webp",
+    "#91e2c8",
+    "#1d3c39",
+    [
+      "Leads",
+      "Campaigns",
+      "Follow-ups"
+    ],
+    "Original marketing frontend"
+  ],
+  [
+    "Personal AI Agent",
+    "Personal AI Agent",
+    "screen",
+    "/showcase/personal-agent.webp",
+    "#b0fcdd",
+    "#233e47",
+    [
+      "Keyword",
+      "Semantic",
+      "Hybrid"
+    ],
+    "Original Gradio frontend"
+  ],
+  [
+    "NeuroSpatial-OS",
+    "NeuroSpatial-OS",
+    "photo",
+    "/showcase/neurospatial.webp",
+    "#d4b2ff",
+    "#392851",
+    [
+      "Concept",
+      "Research",
+      "Documentation"
+    ],
+    "Research concept illustration"
+  ],
+  [
+    "GRIDGUARD PK",
+    "GRIDGUARD PK",
+    "photo",
+    "/showcase/gridguard.webp",
+    "#a4efc4",
+    "#1b3e3b",
+    [
+      "Meter readings",
+      "Consistency checks",
+      "Detection study"
+    ],
+    "Research proposal illustration"
+  ],
+  [
+    "ServerMind / DevOpsPilot",
+    "DevOpsPilot",
+    "flow",
+    null,
+    "#b6a9fe",
+    "#2a2b51",
+    [
+      "Build",
+      "Evaluate",
+      "Deploy"
     ]
   ],
   [
@@ -160,82 +231,59 @@ const covers = [
     ]
   ],
   [
-    "Certificate Generator",
-    "Certificate Generator",
-    "certificate",
-    null,
-    "#e4c785",
-    "#493e32",
-    [
-      "Template",
-      "Personalize",
-      "Export PDF"
-    ]
-  ],
-  [
     "CreateX Certificate Download Portal",
     "CreateX Portal",
-    "window",
-    null,
+    "screen",
+    "/showcase/certificate-portal.webp",
     "#c1a7ff",
     "#372748",
     [
       "Find your certificate",
       "Search participants",
       "Download PDF"
+    ],
+    "Original frontend · search preview"
+  ],
+  [
+    "C# Timetable Manager",
+    "Timetable Manager",
+    "window",
+    null,
+    "#81c7d3",
+    "#1d4555",
+    [
+      "Classes",
+      "Teachers",
+      "Rooms"
     ]
   ],
   [
-    "SialMail / Email Automator",
-    "SialMail",
-    "inbox",
-    null,
-    "#91e2c8",
-    "#1d3c39",
+    "Certificate Generator",
+    "Certificate Generator",
+    "screen",
+    "/showcase/certificate-generator.webp",
+    "#e4c785",
+    "#493e32",
     [
-      "Leads",
-      "Campaigns",
-      "Follow-ups"
-    ]
+      "Template",
+      "Personalize",
+      "Export PDF"
+    ],
+    "Original editor · sample certificate"
   ],
   [
     "Office Document Approval System",
     "Office Approvals",
-    "flow",
-    null,
+    "photo",
+    "/showcase/office-approvals.webp",
     "#f0cd8c",
     "#413544",
     [
       "Manufacturing",
       "Quality assurance",
       "Finance"
-    ]
-  ],
-  [
-    "PhishScan",
-    "PhishScan",
-    "inbox",
-    null,
-    "#a4bafe",
-    "#24264a",
-    [
-      "Inbox",
-      "Analyze message",
-      "Review signals"
-    ]
-  ],
-  [
-    "Personal AI Agent",
-    "Personal AI Agent",
-    "flow",
-    null,
-    "#b0fcdd",
-    "#233e47",
-    [
-      "Keyword",
-      "Semantic",
-      "Hybrid"
-    ]
+    ],
+    "Product proposal illustration"
   ],
   [
     "CAPTCHA Strength Evaluator",
@@ -253,15 +301,16 @@ const covers = [
   [
     "Used Car Price Prediction",
     "Car Price Prediction",
-    "chart",
-    null,
+    "photo",
+    "/showcase/used-car.webp",
     "#ffae88",
     "#4b3032",
     [
       "Vehicle features",
       "Preprocessing",
       "Estimate"
-    ]
+    ],
+    "Concept photograph"
   ],
   [
     "LALR(1) SQL Parser Visualizer",
@@ -275,49 +324,10 @@ const covers = [
       "Parse actions",
       "Syntax tree"
     ]
-  ],
-  [
-    "ServerMind / DevOpsPilot",
-    "DevOpsPilot",
-    "flow",
-    null,
-    "#b6a9fe",
-    "#2a2b51",
-    [
-      "Build",
-      "Evaluate",
-      "Deploy"
-    ]
-  ],
-  [
-    "GRIDGUARD PK",
-    "GRIDGUARD PK",
-    "chart",
-    null,
-    "#a4efc4",
-    "#1b3e3b",
-    [
-      "Meter readings",
-      "Consistency checks",
-      "Detection study"
-    ]
-  ],
-  [
-    "NeuroSpatial-OS",
-    "NeuroSpatial-OS",
-    "spatial",
-    null,
-    "#d4b2ff",
-    "#392851",
-    [
-      "Concept",
-      "Research",
-      "Documentation"
-    ]
   ]
 ];
 
-export const showcase = covers.map(([title, coverTitle, motif, image, accent, ink, labels]) => ({
+export const showcase = covers.map(([title, coverTitle, motif, image, accent, ink, labels, sourceLabel]) => ({
   ...projects.find(project => project.title === title),
   coverTitle,
   motif,
@@ -325,6 +335,7 @@ export const showcase = covers.map(([title, coverTitle, motif, image, accent, in
   accent,
   ink,
   labels,
+  sourceLabel,
 }));
 
 export function ProjectArtwork({ project }) {
