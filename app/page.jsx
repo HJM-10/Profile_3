@@ -4,12 +4,6 @@ import { useState } from "react";
 import ProjectArchive from "./project-archive";
 import ScrollMotion from "./scroll-motion";
 
-const projects = [
-  { title: "DNF Trading", image: "/instruments.png", description: "A catalog and ordering platform with a live 3D product customizer." },
-  { title: "3DFV", image: "/restaurant.jpg", description: "A restaurant ordering app with guest browsing, a shopping cart, and QR-to-AR viewing." },
-  { title: "SpendTrail", image: "/spendtrail.png", description: "A mobile spending tracker with simulated purchases and refunds." },
-];
-
 const experience = [
   { title: "Business web applications", project: "DNF Trading", note: "Worked on the customer interface, admin dashboard, and product configuration options." },
   { title: "Mobile app development", project: "3DFV and SpendTrail", note: "Built ordering, navigation, account, and spending flows across Expo and Flutter projects." },
@@ -17,7 +11,6 @@ const experience = [
 ];
 
 export default function OrbitalPortfolio() {
-  const [activeProject, setActiveProject] = useState(0);
   const [previewName, setPreviewName] = useState("");
 
   function handleSubmit(event) {
@@ -46,7 +39,7 @@ export default function OrbitalPortfolio() {
       <ScrollMotion />
       <header className="bar">
         <a className="brand" href="#top">Huzaifa Jayyad</a>
-        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#all-projects">All projects</a><a href="#contact">Contact</a></nav>
+        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#all-projects">Projects</a><a href="#contact">Contact</a></nav>
       </header>
 
       <main id="top">
@@ -68,30 +61,12 @@ export default function OrbitalPortfolio() {
         </section>
 
         <section className="experience" id="experience">
-          <h2>Project experience.</h2>
+          <h2>Experience.</h2>
           <ol className="timeline">
             {experience.map(item => (
               <li key={item.title} data-scroll-scene><span className="timeline-node" aria-hidden="true" /><div><h3>{item.title}</h3><p className="timeline-project">{item.project}</p><p>{item.note}</p></div></li>
             ))}
           </ol>
-        </section>
-
-        <section className="work" id="work" data-scroll-scene>
-          <p className="section-label">My work</p>
-          <h2>Projects.</h2>
-          <p className="work-lead">Selected apps that show how I handle product configuration, mobile ordering, and spending workflows.</p>
-          <div className="work-grid">
-            <div className="project-selector" aria-label="Select a project">
-              {projects.map((project, index) => (
-                <button type="button" aria-pressed={activeProject === index} key={project.title} onClick={() => setActiveProject(index)}>{project.title}</button>
-              ))}
-            </div>
-            <article aria-live="polite">
-              <img src={projects[activeProject].image} alt="" />
-              <h3>{projects[activeProject].title}</h3>
-              <p>{projects[activeProject].description}</p>
-            </article>
-          </div>
         </section>
 
         <ProjectArchive />

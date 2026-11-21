@@ -88,13 +88,22 @@ export default function ProjectArchive() {
 
   return (
     <section className="project-showcase" id="all-projects" aria-labelledby="archive-title">
+      <span className="showcase-anchor" id="work" aria-hidden="true" />
       <header className="showcase-heading">
-        <h2 id="archive-title">All projects</h2>
+        <h2 id="archive-title">Projects.</h2>
         <label htmlFor="project-jump">Jump to a project</label>
         <select id="project-jump" value={active} onChange={event => navigate(Number(event.target.value))}>
           {showcase.map((project, index) => <option value={index} key={project.title}>{project.title}</option>)}
         </select>
       </header>
+
+      <nav className="project-chapters" aria-label="Project chapters">
+        {chapterTitles.map((title, chapter) => (
+          <button key={title} type="button" aria-current={Math.floor(active / 6) === chapter ? "true" : undefined} onClick={() => navigate(chapter * 6)}>
+            {title}
+          </button>
+        ))}
+      </nav>
 
       {groups.map((group, chapter) => (
         <div className="showcase-track" data-motion={["fold", "shutter", "turn", "iris"][chapter]} ref={element => { tracks.current[chapter] = element; }} key={chapterTitles[chapter]} style={{ "--track-height": `${100 + (group.length - 1) * 68}svh` }}>
